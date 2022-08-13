@@ -33,13 +33,24 @@ function openPhotoFullDisplay(evt) {
     if (evt.target.classList.contains('gallery__lmage')) {
         return; 
     }
-instance.show()
-console.log(evt.target)
+        const imageActive = evt.target;
+        const hrefElement = imageActive.dataset.source;
+        
+        const instance = basicLightbox.create(`
+        <img src="${hrefElement}" width="800" height="600">`)
+    
+    instance.show();
+    
+    document.addEventListener("keydown", (evt) => {
+        if (evt.key !== "Escape") {
+        return;
+    }
+        instance.close();
+});
+    
 }
 
-const instance = basicLightbox.create(
-    `<img src="https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg">`
-)
+
 
 
 
