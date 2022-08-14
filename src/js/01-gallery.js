@@ -23,7 +23,7 @@ function createGalleryList(galleryItems) {
             </div>
             `;
         })
-    .join('');
+        .join('');
 }
 
 galleryContainer.addEventListener('click', openPhotoFullDisplay);
